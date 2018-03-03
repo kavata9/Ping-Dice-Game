@@ -1,89 +1,116 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Londrina+Shadow|Philosopher|Sancreek|UnifrakturCook:700" rel="stylesheet">
-    <script src="js/jquery-3.1.1.js"></script>
-    <script src="js/scripts.js"></script>
-    <title>PIG DICE GAME</title>
-  </head>
-  <body>
-    <div id="preheader">
-      <p class="header">Pig Dice</p>
-    </div>
-    <div class="container">
-      <div class="row" id="intro">
-        <div class="col-md-12 spacer">
-          <div class="wrapper">
-            <p>
-            <label for="gameChoice"> Two Players
-              <input type="radio" name="gameChoice" value="twoPlayer" checked>
-            </label>
+
+<head>
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.3.1.js"></script>
+  <script src="js/scripts.js"></script>
+
+  <title>Pig Dice</title>
+</head>
+
+<body class="bg">
+  <div class="container">
+    <br><br>
+    <div class="row">
+      <!-- Start Desc-->
+      <div class="col-sm-12">
+
+        <div class="col-sm-6 column1">
+          <h1>Pig Dice Game Rules</h1>
+          <h2>How to Play Pig Dice Game</h2>
+          <h4>Objective</h4>
+          <p>
+            The objective of Pig Dice Game is to score 100 points before the opponent(s) do(es). The Pig game is played with a single six-sided die.
           </p>
-            <button type="button" id="gameChoice" class = "btn btn-success btn-lg" name="button">Play</button>
-          </div>
+        </div>
+        <div class="col-sm-6 column2">
+          <h4> <br>Gameplay</h4>
+          <p>
+            In each turn a player rolls a die repeatedly until either a 1 is rolled or player decides to hold and pass on the turn to its opponent.
+          </p>
+          <p>
+            The number player rolls is added to a temporary score. If the player rolls a 1, they lose their temporary score and turn is passed to their opponent.
+          </p>
+          <p>
+            If player gets any other number, they can decide to continue and roll the die.
+          </p>
+          <p>
+            If player decides to hold, then their turn total (temporary score) is added to the overall score.
+          </p>
+          <p>
+            The first player to score 100 points wins the game.
+          </p>
         </div>
       </div>
-      <div class="row" id="instructions">
-        <h1><hr>RULES<hr></h1>
-        <ul>
+    </div>
+    <div class="names">
+      <h1>Enter your names to start</h1>
 
-
-          <li>The rules are simple. Two  players will compete. The first player to reach 100 points or more is the winner. </li>
-          <li>When it is your turn, you roll. If you get a Pig-Out or an Oinker, then you pass the pigs onto the next player.</li>
-          <li> If you get anything else, you may decide to roll again or pass the pigs.</li>
-          <li> If you keep rolling again, you accumulate points to add to your bank but if you get a Pig-Out, then all your points accumulated this turn are nullified.</li>
-        </ul>
+      <div class="col-md-12">
+        <form id="player">
+          <div class="form-group">
+            <label for="player1">Player 1. Name:</label>
+            <input class="player1" type="text">
+            <label for="player2">Player 2 Name:</label>
+            <input  class="player2 form-control" type="text" required>
+          </div>
+          <div class="form-group">
+          </div>
+          <button id="start" class="btn-info btn" type="submit">Let's Play!</button>
+        </form>
       </div>
-
-      <div class="row" id="twoPlayer">
-        <div class="col-md-12 spacer">
-          <div class="wrapper center">
-              <h2>Dice:</h2>
-              <div id="dice">
-                <img src="images/image1.jpeg"/>
-              </div>
-              <div id="winner">
-              </div>
-          </div>
-
-        </div>
-        <div class="col-md-6 spacer bgColor">
-          <div class="wrapper player1">
-            <h2> Player 1</h2>
-            <div id="player1RunningTotal">
-              Running Total: 0
-            </div>
-            <div id="player1Total">
-              Total: 0
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 spacer bgColor">
-          <div class="wrapper player2">
-              <h2>Player 2</h2>
-              <div id="player2RunningTotal">
-                Running Total: 0
-              </div>
-              <div id="player2Total">
-                Total: 0
-              </div>
-          </div>
-        </div>
-
-        <div class="center">
-          <button type="button" id="roll" class = "btn btn-success btn-lg" name="button">Roll</button>
-          <button type="button" id="hold" class = "btn btn-warning btn-lg" name="button">Hold</button>
-
-        </div>
-      </div>
-
-
-
+      <!-- <div class="col-md-6">
+        <form id="player2">
+        </form>
+      </div> -->
 
     </div>
+    <div class="display">
+      <div class="col-sm-12" style="background-color:black;width:100%;">
+        <br><br>
+        <div style="width:100%">
+          <div><img src="images/image1.jpeg" width="58" height="78" id="imgplayer1"></div>
+          <div class="col-md-6">
+            <h2>Player 1: <span id="player1"><span></h2>
+              <button type="button" id="player1-roll" class="btn btn-md btn-primary">Roll Dice</button>
+              <button type="button" id="player1-hold" class="btn btn-md btn-warning">Pass Turn</button>
 
-  </body>
+            <h2>Dice Roll: <span id="die-roll-1"></span></h2>
+            <p>Round Total: <span id="round-total-1"></span></p>
+            <p>Total Score: <span id="total-score-1"></span></p>
+          </div>
+
+        </div>
+
+        <div style="width:100%">
+          <div><img src="images/image2.jpeg" id="imgplayer2" class="img-player" width="58" height="78"></div>
+          <div class="col-md-6">
+            <h2>Player 2: <span id ="player2"><span></h2>
+            <button type="button" id="player2-roll" class="btn btn-md btn-primary">Roll Dice</button>
+            <button type="button" id="player2-hold" class="btn btn-md btn-warning">Pass Turn</button>
+
+            <h2>Dice Roll: <span id="die-roll-2"></span></h2>
+            <p>Round Total: <span id="round-total-2"></span></p>
+            <p>Total Score: <span id="total-score-2"></span></p>
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <div>
+
+        </div>
+      </div>
+      <br><br>
+      <br><br>
+      <br><br>
+
+
+</body>
+</body>
+
 </html>
