@@ -13,4 +13,4 @@
 Incase of any questions or support kindly contact me via kavatamusyoka24@gmail.com.
 ### License
 *{Determine the license under which this application can be used.  See below for more details on licensing.}*
-Copyright (c)kavata9@github.com {2018} **{Moringaschool}**
+Copyright (c)kavata9@github.com {2018} **{Moringaschool}**https://github.com/kavata9/Ping-Dice-Game
